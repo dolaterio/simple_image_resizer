@@ -1,0 +1,25 @@
+{
+  "name": "simple_image_resizer",
+  "version": "0.0.1",
+  "description": "Simple image resizer",
+  "author": "Albert Callarisa Roca",
+  "license": "MIT",
+  "main": "resizer.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acroca/simple_image_resizer.git"
+  },
+  "keywords": [
+    "graphicsmagick",
+    "image",
+    "resize"
+  ],
+  "bugs": {
+    "url": "https://github.com/acroca/simple_image_resizer/issues"
+  },
+  "dependencies": {
+    "gm": "1.16.0",
+    "mime": "^1.2.11",
+    "request": "^2.40.0"
+  }
+}
