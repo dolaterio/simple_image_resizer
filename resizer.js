@@ -38,17 +38,29 @@ var reqStream = request.get({
 gm(reqStream)
 .resize(width, height)
 .stream(function (err, stdout, stderr) {
-  opts = {
-    Body: stdout,
-    Bucket: bucket,
-    Key: destination,
-    ContentType: mime.lookup(url)
+  if(err){
+    console.error(err.message)
+    process.exit(1)
   }
-  s3.putObject(opts, function(error, res){
-    if(err){
-      console.log(err)
-      process.exit(1)
+  var buf = new Buffer(0);
+  stdout.on('data', function(d) {
+    buf = Buffer.concat([buf, d]);
+  });
+  stdout.on('end', function() {
+    var opts = {
+      Body: buf,
+      Bucket: bucket,
+      Key: destination,
+      ContentType: mime.lookup(url)
     }
-    process.exit(0)
-  })
+    console.log("===> destination: ", destination);
+    s3.putObject(opts, function(err, res){
+      if(err){
+        console.error(err.message)
+        process.exit(2)
+      }
+      process.exit(0)
+    })
+  });
+
 });
