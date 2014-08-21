@@ -53,7 +53,6 @@ gm(reqStream)
       Key: destination,
       ContentType: mime.lookup(url)
     }
-    console.log("===> destination: ", destination);
     s3.putObject(opts, function(err, res){
       if(err){
         console.error(err.message)
