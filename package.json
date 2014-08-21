@@ -18,6 +18,7 @@
     "url": "https://github.com/acroca/simple_image_resizer/issues"
   },
   "dependencies": {
+    "aws-sdk": "^2.0.14",
     "gm": "1.16.0",
     "mime": "^1.2.11",
     "request": "^2.40.0"
