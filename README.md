@@ -37,7 +37,12 @@ You can run the converter locally. Clone this project, cd into it and `npm insta
 Then, a one-line command to run all together:
 
 ```
-echo '{"width":30,"height":50,"url":"http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg","destination":"test.jpg"}' | node resizer.js
+echo '{ \
+    "width":30, \
+    "height":50, \
+    "url":"http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg", \
+    "destination":"test.jpg" \
+}' | node resizer.js
 ```
 
 NOTE: Remember to set the environment variables with your S3 configuration.
